@@ -4,10 +4,9 @@
   "description": "",
   "exports": "./src/index.ts",
   "scripts": {
-    "start": "npx -y ts-node --experimental-specifier-resolution=node -r tsconfig-paths/register -r dotenv/config src/index.ts",
+    "start": "npx -y ts-node -r tsconfig-paths/register -r dotenv/config src/index.ts",
     "dev": "npx -y ts-node-dev --experimental-specifier-resolution=node --poll --respawn -r tsconfig-paths/register -r dotenv/config src/index.ts"
   },
-  "type": "module",
   "author": "",
   "license": "ISC",
   "devDependencies": {

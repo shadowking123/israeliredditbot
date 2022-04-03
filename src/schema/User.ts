@@ -58,7 +58,7 @@ export default class User {
       } catch (err) {
         console.log(err);
         console.log(`(${attempts++})Retrying...`);
-        await sleep(2000);
+        await sleep(5000);
       }
     }
     if (attempts >= 3) {

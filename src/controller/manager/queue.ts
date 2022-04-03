@@ -13,14 +13,12 @@ export default class Queue {
       const date = Date.now();
       this.queue.forEach((v: Array<User>, k: string) => {
         const eventDate = new Date(parseInt(k));
-        console.log(
-          `time: ${date} ${eventDate.getTime()}, ${
-            date - eventDate.getTime()
-          } v: ${v}`
-        );
         if (date - eventDate.getTime() >= 0) {
           v.forEach(async (user: User) => {
             user.place(1490, 451, 31);
+            console.log(
+              `removed ${user.username} from queue (${user.nextPlace})`
+            );
             v.splice(v.indexOf(user), 1);
           });
         }

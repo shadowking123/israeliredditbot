@@ -4,6 +4,6 @@ export const queue = new Manager();
 
 const main = async () => {
   queue.start_q();
-  queue.addUser(new User("cheatslife", "Cm96mYE7v6yP"));
+  queue.addUser(new User("cheatslife", process.env.ACC_PASSWORD as string));
 };
 main();
