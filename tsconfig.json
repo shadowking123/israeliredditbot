@@ -33,7 +33,12 @@
     "baseUrl": "./src" /* Specify the base directory to resolve non-relative module names. */,
     "paths": {
       "@auth/*": ["controller/auth/*"],
+      "@auth": ["controller/auth/index"],
+      "@place": ["controller/auth/placement/index"],
+      "@place/*": ["controller/auth/placement/*"],
       "@login/*": ["controller/auth/login/*"],
+      "@manager/*": ["controller/manager/*"],
+      "@manager": ["controller/manager/queue"],
       "@login": ["controller/auth/login/index"],
       "@schema/*": ["schema/*"],
       "@root": ["index"]

@@ -8,6 +8,6 @@ export const csrf = async (cookieJar: CookieJar) => {
   if (csrf && csrf[1]) {
     return csrf[1];
   } else {
-    throw Error("Could not fetch csrf token");
+    throw Error("Could not fetch csrf token\n" + res);
   }
 };

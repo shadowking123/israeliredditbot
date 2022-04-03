@@ -1,9 +1,9 @@
 import User from "@schema/User";
+import Manager from "@manager";
+export const queue = new Manager();
 
 const main = async () => {
-  const user = new User("cheatslife", "Cm96mYE7v6yP");
-  await user.setCsrf();
-  await user.setLogin();
-  console.log(user);
+  queue.start_q();
+  queue.addUser(new User("cheatslife", "Cm96mYE7v6yP"));
 };
 main();

@@ -12,5 +12,8 @@ export const login = async (user: User) => {
     username: user.username,
   };
 
-  const res = await client.post(url, { form: body });
+  const res: any = await client.post(url, { form: body }).json();
+  if (res && res.explanation) {
+    throw res.explanation;
+  }
 };
