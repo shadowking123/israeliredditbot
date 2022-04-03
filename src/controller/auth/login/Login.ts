@@ -1,29 +1,16 @@
-import ky from "ky";
+import User from "@schema/User";
+import got from "got";
 
-export const login = async (
-  session: string,
-  csrf: string,
-  username: string,
-  password: string
-) => {
-  let url = `${process.env.REDDIT_URL}/login`;
-  let headers = ky.extend({
-    hooks: {
-      beforeRequest: [
-        (request) => {
-          request.headers.set("Cookie", `session: ${session};`);
-        },
-      ],
-    },
-  });
-  let body = {
-    csrf_token: csrf,
+export const login = async (user: User) => {
+  const cookieJar = user.cookieJar;
+  const url = `${process.env.REDDIT_URL}/login`;
+  const client = got.extend({ cookieJar });
+  const body = {
+    csrf_token: user.csrfToken,
     otp: "",
-    password: password,
-    username: username,
+    password: user.password,
+    username: user.username,
   };
 
-  return await headers.post(url, body).then((res) => {
-    console.log(res);
-  });
+  const res = await client.post(url, { form: body });
 };
